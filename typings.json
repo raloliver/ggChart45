@@ -1,0 +1,6 @@
+{
+  "dependencies": {},
+  "globalDependencies": {
+    "google-apps-script/google-apps-script.charts": "registry:dt/google-apps-script/google-apps-script.charts#0.0.0+20160510192225"
+  }
+}
