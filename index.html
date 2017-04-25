@@ -8,16 +8,59 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta http-equiv="Cache-Control: max-age=3600, must-revalidate">
     <meta name="description" content="ggChart45">
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/paper/bootstrap.min.css" rel="stylesheet" integrity="sha384-awusxf8AUojygHf2+joICySzB780jVvQaVCAt1clU3QsyAitLGul28Qxb2r1e5g+"
+        crossorigin="anonymous">
     <title>ggChart45</title>
 </head>
 
 <body>
-    <section id="grafico-vendas"></section>
-    <ul style="float: right">
-        <li>
-            <a href="https://developers.google.com/chart/interactive/docs/reference">Google Visualization API Reference</a>
-        </li>
-    </ul>
+    <section class="container" id="grafico-vendas"></section>
+
+    <section class="container">
+        <div class="row well-lg">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <form name="form" class="form-inline">
+                    <div class="form-group">
+                        <label class="sr-only" for="">Dia</label>
+                        <input type="text" class="form-control" id="date" placeholder="Dia da Semana" name="date">
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="">Dia</label>
+                        <input type="number" class="form-control" id="sales" placeholder="Quantidade de Vendas" name="sales">
+                    </div>
+                    <button id="btn-inserir" type="submit" class="btn btn-success" disabled onclick="inserirDados(event)">Inserir</button>
+                    <button id="btn-atualizar" type="button" class="btn btn-default" disabled onclick="desenhaGrafico()">
+                    <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="row well-lg">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Dia da Semana</th>
+                            <th>Quantidade de Vendas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Domingo</td>
+                            <td>4</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row pull-right">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="list-group">
+                    <a href="https://developers.google.com/chart/interactive/docs/reference">Google Visualization API Reference</a>
+                </div>
+            </div>
+        </div>
+    </section>
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="main.js"></script>
 </body>
