@@ -19,7 +19,7 @@
     <section class="container">
         <div class="row well-lg">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <form name="form" class="form-inline">
+                <form class="form-inline">
                     <div class="form-group">
                         <label class="sr-only" for="">Dia</label>
                         <input type="text" class="form-control" id="date" placeholder="Dia da Semana" name="date">
@@ -28,10 +28,13 @@
                         <label class="sr-only" for="">Dia</label>
                         <input type="number" class="form-control" id="sales" placeholder="Quantidade de Vendas" name="sales">
                     </div>
-                    <button id="btn-inserir" type="submit" class="btn btn-success" disabled onclick="inserirDados(event)">Inserir</button>
-                    <button id="btn-atualizar" type="button" class="btn btn-default" disabled onclick="desenhaGrafico()">
+
+                    <button id="btn-inserir" type="submit" class="btn btn-success" disabled onclick="inserirDados(event)"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+                    <button id="btn-atualizar" type="button" class="btn btn-default" onclick="desenhaGrafico()">
                     <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
                     </button>
+                    <button id="btn-editar" type="button" class="btn btn-sm btn-warning" onclick="editarDados()"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button>
+                    <button id="btn-editar" type="button" class="btn btn-xs btn-danger" onclick="removerDados()"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
                 </form>
             </div>
         </div>
@@ -47,7 +50,11 @@
                     <tbody>
                         <tr>
                             <td>Domingo</td>
-                            <td>4</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td>Segunda</td>
+                            <td>42</td>
                         </tr>
                     </tbody>
                 </table>

@@ -8,11 +8,14 @@ google.charts.setOnLoadCallback(iniciarGG);
 
 function iniciarGG() {
     desenhaGrafico();
+
     let btnInserir = document.querySelector('#btn-inserir');
+    btnInserir.removeAttribute('disabled');
+    /*
     let btnAtualizar = document.querySelector('#btn-atualizar');
     //ao carregar o GG, habilitar o botão
-    btnInserir.removeAttribute('disabled');
     btnAtualizar.removeAttribute('disabled');
+    */
 }
 
 function desenhaGrafico() {
@@ -45,8 +48,47 @@ function desenhaGrafico() {
     graficoVendas.draw(data, options);
 }
 
-function inserirDados(evento) {
-    evento.preventDefault();
+function removerDados() {
+    let data = inserirGrafico();
+
+    data.removeRow(2);
+
+
+    let options = {
+        title: 'Qual dia você trabalhou mais?',
+        width: 720,
+        height: 360
+    }
+
+    let graficoVendas = new google.visualization.PieChart(document.querySelector('#grafico-vendas'));
+
+    graficoVendas.draw(data, options);
+}
+
+function editarDados() {
+    let data = inserirGrafico();
+
+    //aqui vão os métodos para edição de valor (setValue[apenas dados] ou setCell[tem mais opções])
+    data.setValue(0, 0, 'Segunda');
+    data.setValue(0, 1, 50);
+
+    data.setCell(1, 0, 'Quinta');
+    data.setCell(1, 1, 100);
+
+
+    let options = {
+        title: 'Qual dia você trabalhou mais?',
+        width: 720,
+        height: 360
+    }
+
+    let graficoVendas = new google.visualization.PieChart(document.querySelector('#grafico-vendas'));
+
+    graficoVendas.draw(data, options);
+}
+
+function inserirDados(event) {
+    event.preventDefault();
     let date = document.querySelector('#date').value;
     let sales = document.querySelector('#sales').value;
     let table = document.querySelector('.table-striped');
