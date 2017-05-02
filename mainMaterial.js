@@ -1,7 +1,7 @@
 /// <reference path="google-chart.d.ts" />
 
 google.charts.load('current', {
-    packages: ['corechart']
+    packages: ['bar']
 });
 
 google.charts.setOnLoadCallback(iniciarGG);
@@ -18,30 +18,20 @@ function desenhaGrafico() {
     let data = inserirGrafico();
 
     let options = {
-        title: 'Vendas X Cancelamentos Diários',
+        chart: {
+            title: 'Vendas X Cancelamentos Diários',
+            subtitle: 'Planos leadlovers'
+        },
+        bars: 'vertical',
         width: 720,
         height: 360,
-        legend: 'top',
-        colors: ['#BADA55', '#F15A52', '#4F7EFF', '#94DAFF', '#000000', '#B00B1E', '#A5501E'],
-        isStacked: true,
-        vAxis: {
-            title: 'Vendas x Cancelamentos',
-            titleTextStyle: {
-                bold: true,
-                fontSize: 16,
-                color: '#404041'
-            }
+        legend: {
+            position: 'top'
         },
-        hAxis: {
-            title: 'Planos',
-            textStyle: {
-                bold: true,
-                fontSize: 12
-            }
-        }
+        colors: ['#BADA55', '#F15A52', '#4F7EFF', '#94DAFF', '#000000', '#B00B1E', '#A5501E']
     }
 
-    let graficoVendas = new google.visualization.ColumnChart(document.querySelector('#grafico-vendas'));
+    let graficoVendas = new google.charts.Bar(document.querySelector('#grafico-vendas'));
 
     graficoVendas.draw(data, options);
 }
@@ -55,9 +45,7 @@ function removerDados() {
     let options = {
         title: 'Vendas X Cancelamentos Diários',
         width: 720,
-        height: 360,
-        legend: 'bottom',
-        colors: ['#BADA55', '#F15A52', '#4F7EFF', '#94DAFF', '#000000', '#B00B1E', '#A5501E']
+        height: 360
     }
 
     let graficoVendas = new google.visualization.ColumnChart(document.querySelector('#grafico-vendas'));
@@ -71,9 +59,7 @@ function editarDados() {
     let options = {
         title: 'Vendas X Cancelamentos Diários',
         width: 720,
-        height: 360,
-        legend: 'bottom',
-        colors: ['#BADA55', '#F15A52', '#4F7EFF', '#94DAFF', '#000000', '#B00B1E', '#A5501E']
+        height: 360
     }
 
     let graficoVendas = new google.visualization.ColumnChart(document.querySelector('#grafico-vendas'));

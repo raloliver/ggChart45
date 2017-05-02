@@ -21,26 +21,20 @@
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <form class="form-inline">
                     <div class="form-group">
-                        <label class="sr-only" for="">Plano</label>
-                        <input type="text" class="form-control" id="plan" placeholder="Plano" name="plan">
+                        <label class="sr-only" for="">Dia</label>
+                        <input type="text" class="form-control" id="date" placeholder="Dia da Semana" name="date">
                     </div>
                     <div class="form-group">
-                        <label class="sr-only" for="">Vendas</label>
-                        <input type="number" class="form-control" id="sales" placeholder="Vendas" name="sales">
+                        <label class="sr-only" for="">Dia</label>
+                        <input type="number" class="form-control" id="sales" placeholder="Quantidade de Vendas" name="sales">
                     </div>
-                    <div class="form-group">
-                        <label class="sr-only" for="">Cancelamentos</label>
-                        <input type="number" class="form-control" id="churns" placeholder="Cancelamentos" name="churns">
-                    </div>
-                    <br><br>
-                    <span class="col-md-offset-2">
+
                     <button id="btn-inserir" type="submit" class="btn btn-success" disabled onclick="inserirDados(event)"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
                     <button id="btn-atualizar" type="button" class="btn btn-default" onclick="desenhaGrafico()">
                     <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
                     </button>
-                    <button id="btn-editar" type="button" class="btn btn-warning" onclick="editarDados()"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button>
-                    <button id="btn-editar" type="button" class="btn btn-danger" onclick="removerDados()"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-                    </span>
+                    <button id="btn-editar" type="button" class="btn btn-sm btn-warning" onclick="editarDados()"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button>
+                    <button id="btn-editar" type="button" class="btn btn-xs btn-danger" onclick="removerDados()"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
                 </form>
             </div>
         </div>
@@ -49,26 +43,18 @@
                 <table class="table table-striped table-hover">
                     <thead>
                         <tr>
-                            <th>Plano</th>
-                            <th>Vendas</th>
-                            <th>Cancelamentos</th>
+                            <th>Dia da Semana</th>
+                            <th>Quantidade de Vendas</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Profissional</td>
-                            <td>57</td>
-                            <td>22</td>
+                            <td>Domingo</td>
+                            <td>7</td>
                         </tr>
                         <tr>
-                            <td>Executivo</td>
-                            <td>3</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td>Empresarial</td>
-                            <td>12</td>
-                            <td>1</td>
+                            <td>Segunda</td>
+                            <td>42</td>
                         </tr>
                     </tbody>
                 </table>
@@ -83,7 +69,7 @@
         </div>
     </section>
     <script src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="main.js"></script>
+    <script src="mainPieChart.js"></script>
 </body>
 
 </html>
