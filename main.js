@@ -73,6 +73,9 @@ function editarDados() {
         width: 720,
         height: 360,
         legend: 'bottom',
+        //legende: {position: 'none'}, //esconder legenda do topo para no caso de uso de cores diferentes para resultados no gráfico de barras
+        //aqui pode usar o slices (objeto/array) para definir as cores individualmente. isso no gráfico de pizza
+        //para o gráfico de barras, isso é feito direto no método arrayToDataTable
         colors: ['#BADA55', '#F15A52', '#4F7EFF', '#94DAFF', '#000000', '#B00B1E', '#A5501E']
     }
 
@@ -101,11 +104,26 @@ function inserirDados(event) {
 function inserirGrafico() {
     let table = document.querySelector('.table-striped');
     let rows = table.querySelectorAll('tbody')[0].children;
+    //aqui também é possível passar através de um array as informações que devem ir no gráfico (arrayToDataTable)
     let data = new google.visualization.DataTable();
+    /**
+     * exemplo de uso do arrayToDataTable (veja outros tipo de role na documentação)
+     */
+    /*
+    let data = new google.visualization.arrayToDataTable([
+        ['Plano', 'Vendas', 'Cancelamentos'], //aqui tbm é possível passar um role do tipo style ou annotations como argumento aos outros itens das séries do array.
+        ['Profissional', 321, 37],
+        ['Executivo', 138, 7],
+        ['Empresarial', 111, 2]            
+    ]);
+    */
+    
 
-    data.addColumn('string', 'Plano');
-    data.addColumn('number', 'Vendas');
-    data.addColumn('number', 'Cancelamentos');
+    //a responsabilidade de cada coluna é implícito, mas é possível passar um objeto no primeiro parâmetro
+    //é possível adicionar mais informações em cada coluna
+    data.addColumn('string', 'Plano'); //role domain
+    data.addColumn('number', 'Vendas'); //role series
+    data.addColumn('number', 'Cancelamentos'); //role series
 
     for (let index = 0; index < rows.length; index++) {
         let plan = rows[index].cells[0].innerHTML;
